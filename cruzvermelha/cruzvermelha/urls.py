@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-
+from RecHumanos.views import *
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from RecHumanos.views import *
@@ -9,7 +9,8 @@ urlpatterns = patterns('',
 	url(r'^contactos/$', 'RecHumanos.views.contacto'),
 	url(r'^contactos/(?P<voluntario_id>\d+)$', 'RecHumanos.views.contacto'),
     # Examples:
-    # url(r'^$', 'cruzvermelha.views.home', name='home'),
+    url(r'^$', home, name='home'),
+    url(r'^login$', login, name='login'),
     # url(r'^cruzvermelha/', include('cruzvermelha.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
