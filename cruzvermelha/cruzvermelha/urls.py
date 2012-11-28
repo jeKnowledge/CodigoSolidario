@@ -2,9 +2,12 @@ from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from RecHumanos.views import *
 admin.autodiscover()
 
 urlpatterns = patterns('',
+	url(r'^contactos/$', 'RecHumanos.views.contacto'),
+	url(r'^contactos/(?P<voluntario_id>\d+)$', 'RecHumanos.views.contacto'),
     # Examples:
     # url(r'^$', 'cruzvermelha.views.home', name='home'),
     # url(r'^cruzvermelha/', include('cruzvermelha.foo.urls')),
