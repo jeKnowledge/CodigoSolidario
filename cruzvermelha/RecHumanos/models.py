@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Voluntario(User):
 	telefone = models.IntegerField()
-	telefone2 = models.IntegerField()
+	telefone2 = models.IntegerField(null=True)
 	formacao = models.CharField(max_length=100)
 	categoria = models.IntegerField() # 0 = condutor , 1 =  preto , 2 = verde
 
@@ -22,9 +22,9 @@ class Disponibilidade(models.Model):
 class Escala(models.Model):
 	data = models.DateField()
 	turno = models.IntegerField()
-	condutor = models.ForeignKey(Voluntario, related_name="condutor")
-	preto = models.ForeignKey(Voluntario, related_name="preto")
-	outro = models.ForeignKey(Voluntario, related_name="outro")
+	condutor = models.ForeignKey(Voluntario, related_name="condutor", null=True)
+	preto = models.ForeignKey(Voluntario, related_name="preto", null=True)
+	outro = models.ForeignKey(Voluntario, related_name="outro", null=True)
 
 class Aviso(models.Model):
 	titulo = models.CharField(max_length=100)

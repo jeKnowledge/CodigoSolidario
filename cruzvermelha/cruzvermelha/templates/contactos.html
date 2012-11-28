@@ -1,9 +1,74 @@
-{% if contactos %}
-    <ul>
-    {% for contacto in contactos %}
-        <li><a href="/contactos/{{ contacto.id }}/">{{ contacto.nome }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Ainda não há voluntários.</p>
-{% endif %}
+<style>
+
+a[href^="mailto:"]
+{ 
+  font-family: sans-serif;
+  color: #00EB00;
+  font-size: 12px;
+}
+
+</style>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="PT">
+	<link rel="stylesheet" href="static/css/table.css" type="text/css">
+	<title>Portal do Voluntário</title>
+
+</head>
+
+<H2>Pretos</H2>
+<table class=stats>
+	<tr>
+	<th>Nome</th>
+	<th>Telefone 1</th>
+	<th>Telefone 2</th>
+	<th>Mail</th>
+</tr>
+<tr>	
+	<td>Nome nome nome</td>
+	<td>910000000</td>
+	<td>931212122</td>
+	<td>mail@mail.com</td>
+		</tr>
+<tr>	
+	<td>Nome nome nome</td>
+	<td>910000000</td>
+			<td>931212122</td>
+	<td>mail@mail.com</td>
+				</tr>
+<tr>	
+	<td>Nome nome nome</td>
+	<td>910000000</td>
+	<td>931212122</td>
+	<td>mail@mail.com</td>
+</tr>
+</table>
+<H2 style="color:green;">Verdes</H2>
+
+<table class=stats>
+	<tr>
+	<th>Nome</th>
+	<th>Telefone 1</th>
+	<th>Telefone 2</th>
+	<th>Mail</th>
+</tr>
+<tr>	
+	<td>Nome nome nome</td>
+	<td>910000000</td>
+	<td>931212122</td>
+	<td>mail@mail.com</td>
+		</tr>
+<tr>	
+	<td>Nome nome nome</td>
+	<td>910000000</td>
+			<td>931212122</td>
+	<td>mail@mail.com</td>
+				</tr>
+<tr>	
+	<td>Nome nome nome</td>
+	<td>910000000</td>
+	<td>931212122</td>
+	<td>mail@mail.com</td>
+</tr>
+</table>
