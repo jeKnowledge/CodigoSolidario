@@ -11,7 +11,9 @@ urlpatterns = patterns('',
 	url(r'^editar_contacto/(?P<voluntario_id>\d+)/$', editar_contacto),
     # Examples:
     url(r'^$', home, name='home'),
-    url(r'^login$', login, name='login'),
+    url(r'^login$', ulogin, name='login'),
+    url(r'^dashboard$', dashboard, name='dashboard'),
+    url(r'^logout$', quit, name='quit'),
     # url(r'^cruzvermelha/', include('cruzvermelha.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

@@ -1,0 +1,187 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+body {
+	background-color: #FFFFFF;
+}
+
+a {
+	text-decoration: none;
+}
+
+h2{
+	text-align:center;
+	font-size:32px;
+}
+
+h4{
+	text-align:center;
+	font-size:22px;
+}
+
+#cruz{
+	margin: 0 auto;
+	display: block;
+}
+
+#main{
+	width: 960px;
+	margin: 0 auto;
+	padding-bottom: 30px;
+}
+
+#login{
+	width: 420px;
+	background: #BBB;
+	border-radius: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px 0;
+	-moz-box-shadow:    5px 5px 5px #000;
+	-webkit-box-shadow: 5px 5px 5px #000;
+	box-shadow:         5px 5px 5px #000;
+}
+
+#login, #login *{
+	font-size: 16px;
+}
+
+#logintable input {
+	width: 100%;
+	height: 25px;
+	border: 1px solid #282828;
+	border-radius: 4px;
+    margin-bottom: 20px;
+    padding-left: 3px;
+}
+
+#logintable input:focus {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 10px rgba(34, 34, 34, 0.6);
+}
+
+.menu {
+	float: left;
+	width: 220px;
+	background-color: white;
+	font-family: GillSans, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+
+.menuGroupTitle {
+	vertical-align: bottom;
+	text-align: center;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 13px;
+	/*margin-left: 5px;*/
+	padding-left: 4px;
+	padding-top: 7px;
+	font-size: 13px;
+	/*font-weight: bold;*/
+	background-color: black;
+	height: 23px;
+	color: white;
+	border-style:solid;
+	border-color: #000000;
+	border-width: 1px 1px 1px 1px;
+	/*margin-right: 5px;*/
+	-moz-border-radius:3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	border-radius: 4px 4px 0 0;	
+}
+div.popup a div:hover {
+	color: white;
+	background-color : #EB0000;
+	-moz-border-radius:2px 2px 2px 2px;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	border-radius: 3px 3px 3px 3px;
+	text-decoration: none;
+}
+.menuGroupTitle {
+	vertical-align: bottom;
+	/*margin-left: 5px;*/
+	padding-left: 4px;
+	padding-top: 7px;
+	font-size: 13px;
+	/*font-weight: bold;*/
+	background-color: #EB0000;
+	height: 23px;
+	color: white;
+	border-style:solid;
+	border-color: #000000;
+	border-width: 1px 1px 1px 1px;
+	/*margin-right: 5px;*/
+	-moz-border-radius:3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	border-radius: 4px 4px 0 0;	
+}
+.menuGroupTitle:hover {
+	cursor: pointer;
+	background-color: #D90000;
+	border-color: #555;
+}
+.menuGroup {
+	/*padding-left: 0px;*/
+	padding-top: 15px;
+	font-weight: bold;
+	color: black;
+	border-style:solid;
+	border-color: #666666;
+	border-width: 1px 1px 1px 1px;
+	min-height: 150px;
+	-moz-border-radius:0px 0px 3px 3px;
+	-webkit-border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px 4px 4px;
+	-moz-box-shadow: 3px 3px 5px #888;
+	-webkit-box-shadow: 3px 3px 5px #888;
+	box-shadow: 3px 3px 5px #888;
+}
+
+.menuGroup a {
+	/*padding-left: 10px;*/
+	color: #1034A6;
+}
+
+.menuGroup a:hover {
+	text-decoration: none;
+}
+.popup div{
+	margin-left: 7px;
+	padding-left: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-right: 7px
+}
+div.popup {
+	padding-bottom: 10px;
+	font-weight: normal;
+}
+
+div.menuItemTitle {
+	padding-bottom: 2px;
+	font-size: 11px;
+}
+
+div.menuItemTitle div {
+	padding-bottom: 2px;
+}
+
+div.menuItem {
+	padding-left: 10px;
+}
+div.menuItemTitle a {
+	padding-left: 10px;
+}
+#contextWithoutMenuWithContacts {
+	float: left;
+	width: 945px;
+	text-align: right;
+	min-height: 45px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+}
