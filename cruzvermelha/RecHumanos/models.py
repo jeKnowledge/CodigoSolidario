@@ -9,7 +9,7 @@ class Voluntario(User):
 	telefone = models.IntegerField()
 	telefone2 = models.IntegerField()
 	formacao = models.CharField(max_length=100)
-	categoria = models.IntegerField()
+	categoria = models.IntegerField() # 0 = condutor , 1 =  preto , 2 = verde
 
 	def nome(self):
 		return self.first_name + " " + self.last_name
@@ -41,7 +41,7 @@ class Turno(models.Model):
 	data_inicio = models.DateTimeField()
 	data_fim = models.DateTimeField()
 
-class Incricao(models.Model):
+class Inscricao(models.Model):
 	turno = models.ForeignKey(Turno)
 	voluntario = models.ForeignKey(Voluntario)
 	observacoes = models.TextField()
