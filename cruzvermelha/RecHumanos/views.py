@@ -40,13 +40,15 @@ def contacto(request, voluntario_id=None):
     # Ver contacto do voluntário
     if voluntario_id:
         contacto = Voluntario.objects.get(id=voluntario_id)
-        return render_to_response("contacto.html", {"contacto": contacto})
+        user = request.user
+        return render_to_response("contacto.html", {"contacto": contacto, "user": user})
         
     # Ver lista de voluntários
     else:
         contactos = Voluntario.objects.order_by('-date_joined')[:5]
         return render_to_response("contactos.html", {"contactos": contactos})
 
+@login_required
 def editar_contacto(request, voluntario_id=None):
     voluntario = Voluntario.objects.get(pk=voluntario_id)
 
@@ -59,16 +61,39 @@ def editar_contacto(request, voluntario_id=None):
         form = VoluntarioForm(instance=voluntario)
     return render_to_response("editar_contacto.html", {"form": form}, context_instance=RequestContext(request))
 
-
 @login_required
 def dashboard(request):
     avisos = Aviso.objects.all().reverse()[:5]
     turnos = Escala.objects.filter(Q(condutor=request.user) | Q(preto=request.user) | Q(outro=request.user))
     turnos = turnos.filter(data__gte=datetime.date.today()).order_by("data")[:5]
-    return HttpResponse(turnos)
-
+    buracos = Escala.objects.filter(Q(condutor=None) | Q(preto=None) | Q(outro=None))
+    buracos = buracos.order_by("data")[:5]
+    return render_to_response("home.html", {'avisos':avisos, 'turnos':turnos, 'buracos':buracos}, context_instance=RequestContext(request))
 
 @login_required
 def quit(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+@login_required
+def AdicionarAviso(request):
+    if request.method == "POST":
+
+        titulo = request.POST['titulo']
+        mensagem = request.POST['mensagem']
+
+        AdicionarNovoAviso(titulo, mensagem)
+ 
+        render_to_response("algures na web", {'titulo':titulo, 'mensagem':mensagem})
+
+    else:
+        return HttpResponseRedirect("")
+
+
+
+#Funções Auxiliares
+def AdicionarNovoAviso(titl, conteudo):
+    Now = datetime.date
+
+    NovoAviso = Aviso(titulo = titl, date = Now, mensagem = conteudo)
+    NovoAviso.save()

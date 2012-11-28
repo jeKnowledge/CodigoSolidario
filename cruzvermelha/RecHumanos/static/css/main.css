@@ -62,6 +62,13 @@ h4{
 
 #login, #login *{
 	font-size: 13px;
+<<<<<<< HEAD
+=======
+}
+
+#logintable {
+	margin-top: 20px;
+>>>>>>> aadec82c3f8f8bf9b0c8d3b2625fc5b333b28159
 }
 
 #logintable {
@@ -80,7 +87,11 @@ h4{
 #logintable input:focus {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 10px rgba(34, 34, 34, 0.6);
 	opacity: 0.8;
+<<<<<<< HEAD
 }*/
+=======
+}
+>>>>>>> aadec82c3f8f8bf9b0c8d3b2625fc5b333b28159
 
 #login_top, #login_bottom {
 	padding: 10px 0;
