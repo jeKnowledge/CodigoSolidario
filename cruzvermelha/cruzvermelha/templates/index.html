@@ -1,35 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Content-Language" content="PT">
-	<link rel="stylesheet" href="static/css/main.css" type="text/css">
-	<title>Portal do Voluntário</title>
+{% extends "base_template.html" %}
 
-</head>
-<body>
+{% block header %}{% endblock %}
 
-	<div id="main">
+{% block content %}
 		<img id="cruz" src="static/images/cruz.png" style="margin-bottom: 20px"/>
 		<h2 style="margin-bottom: 20px">Portal do Voluntário</h2>
-		<h4 style="margin-bottom: 20px">Login</h4>
+		<!--<h4 style="margin-bottom: 20px">Login</h4>-->
 		<div id="login">
+			<div id="login_top"><center>Login and Register</center></div>
 			<form id="logintable" action="login" method="post">
-				{% csrf_token %}
+				{%csrf_token%}
 				<div style="width: 60%; margin:0 auto">
 					<center>
 						<input type="text" name="username" placeholder="Nome"/>
-						<input type="text" name="password" placeholder="Password"/>
-						<input type="submit" value="Entrar" style="border-radius:6px;width:120px;height:30px;" />
+						<input type="password" name="password" placeholder="Password"/>
+						<input type="submit" value="Entrar" class="btn"/>
 					</center>
 				</div>
 			</form>
-			<center>
-				<a href="">Esqueci-me da Password!</a>
-			</center>
+			<div id="login_bottom">
+				<center><a href="">Esqueci-me da Password!</a></center>
+			</div>
 		</div>
 
-	</div>
-
-</body>
-</html>
+{% endblock %}

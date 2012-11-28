@@ -1,0 +1,29 @@
+table.stats {
+text-align: left;
+font-family: Verdana;
+font-size: 11px;
+border-collapse: collapse;
+border-color: #ffffff;
+}
+
+table.stats td.hed{
+background: #FFF url(/static/images/table_header_gradient.jpg) repeat-x;
+color: #ffffff;
+padding: 4px;
+text-align: center;
+font-size: 12px;
+font-weight: bold;
+
+}
+
+table.stats td {
+background-color: #cfcfcf;
+color: #000000;
+padding: 4px;
+text-align: left;
+}
+
+tr:first-child td:first-child { border-top-left-radius: 10px; }
+tr:first-child td:last-child { border-top-right-radius: 10px; }
+tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+tr:last-child td:last-child { border-bottom-right-radius: 10px; }
