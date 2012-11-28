@@ -37,22 +37,29 @@ def ulogin(request):
 
 @login_required
 def contacto(request, voluntario_id=None):
-    if request.method == 'GET':
-
-        # Ver contacto do voluntário
-        if voluntario_id:
-            contacto = Voluntario.objects.get(id=voluntario_id)
-            return render_to_response("contacto.html", {"contacto": contacto})
-            
-        # Ver lista de voluntários
-        else:
-            contactos = Voluntario.objects.order_by('-date_joined')[:5]
-            return render_to_response("contactos.html", {"contactos": contactos})
-            
-    elif request.method == 'POST':
-        return HttpResponse("POST")
+    # Ver contacto do voluntário
+    if voluntario_id:
+        contacto = Voluntario.objects.get(id=voluntario_id)
+        user = request.user
+        return render_to_response("contacto.html", {"contacto": contacto, "user": user})
+        
+    # Ver lista de voluntários
     else:
-        return HttpResponse(request.method)
+        contactos = Voluntario.objects.order_by('-date_joined')[:5]
+        return render_to_response("contactos.html", {"contactos": contactos})
+
+@login_required
+def editar_contacto(request, voluntario_id=None):
+    voluntario = Voluntario.objects.get(pk=voluntario_id)
+
+    if request.method == 'POST':
+        form = VoluntarioForm(request.POST, instance=voluntario)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/contactos/"+str(voluntario_id))
+    else:
+        form = VoluntarioForm(instance=voluntario)
+    return render_to_response("editar_contacto.html", {"form": form}, context_instance=RequestContext(request))
 
 
 @login_required
