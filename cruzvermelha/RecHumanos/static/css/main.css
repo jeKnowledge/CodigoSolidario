@@ -68,7 +68,7 @@ h4{
 	margin-top: 20px;
 }
 
-#logintable input {
+/*#logintable input {
 	width: 100%;
 	height: 25px;
 	border: 1px solid #282828;
@@ -80,7 +80,8 @@ h4{
 #logintable input:focus {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 10px rgba(34, 34, 34, 0.6);
 	opacity: 0.8;
-}
+}*/
+
 
 #login_top, #login_bottom {
 	padding: 10px 0;

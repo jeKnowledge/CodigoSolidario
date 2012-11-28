@@ -1,17 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Content-Language" content="PT">
-	<link rel="stylesheet" href="/static/css/main.css" type="text/css">
-	
+{% extends "base_template.html" %}
 
-	<title>Portal do Voluntário</title>
+{% block header %}{% endblock %}
 
-</head>
-<body>
-
-	<div id="main">
+{% block content %}
 		<img id="cruz" src="static/images/cruz.png" style="margin-bottom: 20px"/>
 		<h2 style="margin-bottom: 20px">Portal do Voluntário</h2>
 		<!--<h4 style="margin-bottom: 20px">Login</h4>-->
@@ -23,7 +14,7 @@
 					<center>
 						<input type="text" name="username" placeholder="Nome"/>
 						<input type="password" name="password" placeholder="Password"/>
-						<input type="submit" value="Entrar" style="border-radius:6px;width:120px;height:30px;" />
+						<input type="submit" value="Entrar" class="btn"/>
 					</center>
 				</div>
 			</form>
@@ -32,7 +23,4 @@
 			</div>
 		</div>
 
-	</div>
-
-</body>
-</html>
+{% endblock %}
