@@ -1,9 +1,17 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.forms import ModelForm, CharField
 
 from django.contrib.auth.models import User
 # Create your models here.
+
+'''class VoluntarioForm(forms.Form):
+    primeiro_nome = forms.CharField(max_length=100)
+    ultimo_nome = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    formacao = forms.CharField(max_length=100)
+    categoria = forms.CharField(max_length=100)'''
 
 class Voluntario(User):
 	telefone = models.IntegerField()
@@ -13,6 +21,16 @@ class Voluntario(User):
 
 	def nome(self):
 		return self.first_name + " " + self.last_name
+
+class VoluntarioForm(ModelForm):
+	first_name = CharField(label='Primeiro nome')
+	last_name = CharField(label='Último nome')
+	telefone2 = CharField(label='Telefone alternativo')
+	formacao = CharField(label='Formação')
+
+	class Meta:
+		model = Voluntario
+		fields = ('first_name', 'last_name', 'email', 'telefone', 'telefone2', 'formacao', 'categoria')
 
 class Disponibilidade(models.Model):
 	voluntario = models.ForeignKey(Voluntario)

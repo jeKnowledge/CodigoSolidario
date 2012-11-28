@@ -6,8 +6,9 @@ from RecHumanos.views import *
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^contactos/$', 'RecHumanos.views.contacto'),
-	url(r'^contactos/(?P<voluntario_id>\d+)/$', 'RecHumanos.views.contacto'),
+	url(r'^contactos/$', contacto),
+	url(r'^contactos/(?P<voluntario_id>\d+)/$', contacto),
+	url(r'^editar_contacto/(?P<voluntario_id>\d+)/$', editar_contacto),
     # Examples:
     url(r'^$', home, name='home'),
     url(r'^login$', login, name='login'),
