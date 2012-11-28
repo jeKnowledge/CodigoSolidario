@@ -37,19 +37,19 @@ def login(requet):
 
 
 def contacto(request, voluntario_id=None):
-	if request.method == 'GET':
+    if request.method == 'GET':
 
-		# Ver contacto do voluntário
-		if voluntario_id:
-			return HttpResponse(str(voluntario_id))
-
-		# Ver lista de voluntários
-		else:
-			contacto = Voluntario.objects.order_by('-pub_date')[:5]
-		    context = {'contacto': contacto}
-    		return render(request, 'RecHumanos/contactos.html', context)
-    		
-	elif request.method == 'POST':
-		return HttpResponse("POST")
-	else:
-		return HttpResponse(request.method)
+        # Ver contacto do voluntário
+        if voluntario_id:
+            contacto = Voluntario.objects.get(id=voluntario_id)
+            return render_to_response("contacto.html", {"contacto": contacto})
+            
+        # Ver lista de voluntários
+        else:
+            contactos = Voluntario.objects.order_by('-date_joined')[:5]
+            return render_to_response("contactos.html", {"contactos": contactos})
+            
+    elif request.method == 'POST':
+        return HttpResponse("POST")
+    else:
+        return HttpResponse(request.method)

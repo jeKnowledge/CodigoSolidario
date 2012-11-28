@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	url(r'^contactos/$', 'RecHumanos.views.contacto'),
-	url(r'^contactos/(?P<voluntario_id>\d+)$', 'RecHumanos.views.contacto'),
+	url(r'^contactos/(?P<voluntario_id>\d+)/$', 'RecHumanos.views.contacto'),
     # Examples:
     url(r'^$', home, name='home'),
     url(r'^login$', login, name='login'),

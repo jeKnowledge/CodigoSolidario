@@ -11,6 +11,9 @@ class Voluntario(User):
 	formacao = models.CharField(max_length=100)
 	categoria = models.IntegerField()
 
+	def nome(self):
+		return self.first_name + " " + self.last_name
+
 class Disponibilidade(models.Model):
 	voluntario = models.ForeignKey(Voluntario)
 	dia = models.IntegerField()
