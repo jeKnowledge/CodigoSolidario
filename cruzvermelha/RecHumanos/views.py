@@ -40,13 +40,15 @@ def contacto(request, voluntario_id=None):
     # Ver contacto do voluntário
     if voluntario_id:
         contacto = Voluntario.objects.get(id=voluntario_id)
-        return render_to_response("contacto.html", {"contacto": contacto})
+        user = request.user
+        return render_to_response("contacto.html", {"contacto": contacto, "user": user})
         
     # Ver lista de voluntários
     else:
         contactos = Voluntario.objects.order_by('-date_joined')[:5]
         return render_to_response("contactos.html", {"contactos": contactos})
 
+@login_required
 def editar_contacto(request, voluntario_id=None):
     voluntario = Voluntario.objects.get(pk=voluntario_id)
 

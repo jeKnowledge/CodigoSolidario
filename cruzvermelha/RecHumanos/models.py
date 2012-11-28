@@ -4,14 +4,6 @@ from django.db import models
 from django.forms import ModelForm, CharField
 
 from django.contrib.auth.models import User
-# Create your models here.
-
-'''class VoluntarioForm(forms.Form):
-    primeiro_nome = forms.CharField(max_length=100)
-    ultimo_nome = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    formacao = forms.CharField(max_length=100)
-    categoria = forms.CharField(max_length=100)'''
 
 class Voluntario(User):
 	telefone = models.IntegerField()

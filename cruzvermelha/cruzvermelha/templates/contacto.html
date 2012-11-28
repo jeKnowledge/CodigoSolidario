@@ -4,6 +4,7 @@
 <p><b>Telefone alternativo:</b> {{ contacto.telefone2 }}</p>
 <p><b>Formação:</b> {{ contacto.formacao }}</p>
 <p><b>Categoria:</b> {{ contacto.categoria }}</p>
-{% if not user.is_authenticated %}
+
+{% if user.is_authenticated and user.id == contacto.id %}
     <p><a href="/editar_contacto/{{ contacto.id }}/">Editar dados</a></p>
 {% endif %}
