@@ -86,14 +86,19 @@ def AdicionarAviso(request):
         mensagem = request.POST['mensagem']
         AdicionarNovoAviso(titulo, mensagem)
  
-        custom_render(request, "algures na web", {'titulo':titulo, 'mensagem':mensagem})
+        return custom_render(request, "algures na web", {'titulo':titulo, 'mensagem':mensagem})
 
     else:
         return HttpResponseRedirect("")
 
 @login_required
 def listaAvisos(request, desde):
-    return HttpResponse("")
+    if desde == None:
+        inicio=0
+    else:
+        inicio = int(desde);
+    avisos = Aviso.objects.all().order_by("date")[inicio:inicio+20]
+    return custom_render(request, "avisos.html" ,{"avisos": avisos})
 
 
 #Funções Auxiliares
