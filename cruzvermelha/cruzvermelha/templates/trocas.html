@@ -1,0 +1,118 @@
+
+<style>
+H2{
+text-align: center;
+}
+
+div.block{
+	overflow:hidden;
+	padding:5px;
+}
+
+
+div.block label{
+  width:160px;
+  display:block;
+  float:left;
+  text-align:left;
+}
+div.block .input{
+  margin-left:0px;
+  float:left;
+  text-align:center;
+  width:190px;
+}
+div.trocas{
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    min-height: 10em;
+    vertical-align: middle ;
+}
+</style>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<H2>Trocas</H2>
+
+
+<form action="submetertroca" method="post">
+{%csrf_token%}
+
+<div class=trocas>
+
+A soliciar com o nome #TODO inserir o nome do user
+
+
+<div class="block">
+  <label>Data</label>
+<input type="number" name="sessionid" min="1" max="31" value="1">
+<select name="state" id="f-state">
+        <option value="Janeiro">Janeiro</option>
+        <option value="Fevereiro">Fevereiro</option>
+        <option value="Março">Março</option>
+        <option value="Abril">Abril</option>
+    </select>
+<select name="state" id="f-state">
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+    </select>
+</div>
+
+<div class="block">
+  <label>Turno</label>
+<select name="state" id="f-state">
+        <option value="1">00:00-08:00</option>
+        <option value="2">08:00-16:00</option>
+        <option value="3">16:00-00:00</option>
+    </select>
+</div>
+
+
+
+<div class="block">
+  <label>Nome de quem Aceita</label>
+  <input class="input" type="text" id="Name2"/> <!-- pode ser uma lista de nomes !-->
+</div>
+<div class="block">
+  <label>Data</label>
+<input type="number" name="sessionid" min="1" max="31" value="1">
+<select name="state" id="f-state">
+        <option value="Janeiro">Janeiro</option>
+        <option value="Fevereiro">Fevereiro</option>
+        <option value="Março">Março</option>
+        <option value="Abril">Abril</option>
+    </select>
+<select name="state" id="f-state">
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+    </select>
+</div>
+
+<div class="block">
+  <label>Turno</label>
+<select name="state" id="f-state">
+        <option value="1">00:00-08:00</option>
+        <option value="2">08:00-16:00</option>
+        <option value="3">16:00-00:00</option>
+    </select>
+</div>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

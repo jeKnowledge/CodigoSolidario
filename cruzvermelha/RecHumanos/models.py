@@ -6,10 +6,10 @@ from django.forms import ModelForm, CharField, Form, BooleanField
 from django.contrib.auth.models import User
 
 class Voluntario(User):
-	telefone = models.IntegerField()
-	telefone2 = models.IntegerField()
+	telefone = models.IntegerField(null=True)
+	telefone2 = models.IntegerField(null=True)
 	formacao = models.CharField(max_length=100)
-	categoria = models.IntegerField() # 0 = condutor , 1 =  preto , 2 = verde
+	categoria = models.IntegerField(null=True) # 0 = condutor , 1 =  preto , 2 = verde
 
 	def nome(self):
 		return self.first_name + " " + self.last_name
@@ -55,9 +55,9 @@ class DisponibilidadeForm(Form):
 class Escala(models.Model):
 	data = models.DateField()
 	turno = models.IntegerField()
-	condutor = models.ForeignKey(Voluntario, related_name="condutor")
-	preto = models.ForeignKey(Voluntario, related_name="preto")
-	outro = models.ForeignKey(Voluntario, related_name="outro")
+	condutor = models.ForeignKey(Voluntario, related_name="condutor", null=True)
+	preto = models.ForeignKey(Voluntario, related_name="preto", null=True)
+	outro = models.ForeignKey(Voluntario, related_name="outro", null=True)
 
 class Aviso(models.Model):
 	titulo = models.CharField(max_length=100)

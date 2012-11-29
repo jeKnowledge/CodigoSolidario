@@ -5,7 +5,7 @@
 }
 
 body {
-	background-color: #FFFFFF;
+	background-color: #DDD;
 }
 
 a {
@@ -33,33 +33,84 @@ h4{
 	padding-bottom: 30px;
 }
 
+#header {
+	height: 125px;
+}
+
+.header_text {
+	padding: 55px 0;
+}
+
+.left {
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
 #login{
 	width: 420px;
 	background: #BBB;
 	border-radius: 15px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 20px 0;
-	-moz-box-shadow:    5px 5px 5px #000;
+	/*-moz-box-shadow:    5px 5px 5px #000;
 	-webkit-box-shadow: 5px 5px 5px #000;
-	box-shadow:         5px 5px 5px #000;
+	box-shadow:         5px 5px 5px #000;*/
 }
 
 #login, #login *{
-	font-size: 16px;
+	font-size: 13px;
 }
 
-#logintable input {
+#logintable {
+	margin-top: 20px;
+}
+
+/*#logintable input {
 	width: 100%;
 	height: 25px;
 	border: 1px solid #282828;
 	border-radius: 4px;
-    margin-bottom: 20px;
-    padding-left: 3px;
+	margin-bottom: 20px;
+	padding-left: 3px;
 }
 
 #logintable input:focus {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 10px rgba(34, 34, 34, 0.6);
+	opacity: 0.8;
+}*/
+
+
+#login_top, #login_bottom {
+	padding: 10px 0;
+	background-color: #AAA;
+	font-weight: bold;
+	color: #212121;
+	font-size: 18px;
+}
+
+#login_top *, #login_bottom *{
+	font-size: 15px;
+}
+
+#login_top{
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+#login_bottom{
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+#login_bottom a{
+	color: #212121;
+}
+
+#login_bottom a:hover{
+	text-decoration: underline;
 }
 
 .menu {
