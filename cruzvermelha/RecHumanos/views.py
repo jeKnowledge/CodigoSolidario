@@ -51,6 +51,9 @@ def contacto(request, voluntario_id=None):
 @login_required
 def editar_contacto(request, voluntario_id=None):
     voluntario = Voluntario.objects.get(pk=voluntario_id)
+    user = request.user
+    if voluntario.id != user.id:
+        return HttpResponseRedirect("/contactos/"+str(voluntario_id))
 
     if request.method == 'POST':
         form = VoluntarioForm(request.POST, instance=voluntario)
@@ -60,6 +63,44 @@ def editar_contacto(request, voluntario_id=None):
     else:
         form = VoluntarioForm(instance=voluntario)
     return render_to_response("editar_contacto.html", {"form": form}, context_instance=RequestContext(request))
+
+@login_required
+def editar_disponibilidade(request, voluntario_id=None):
+    voluntario = Voluntario.objects.get(pk=voluntario_id)
+    user = request.user
+    if voluntario.id != user.id:
+        return HttpResponseRedirect("/contactos/"+str(voluntario_id))
+
+    if request.method == 'POST':
+        form = DisponibilidadeForm(request.POST)
+        if form.is_valid():
+            i = -1
+            for dia in ['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']:
+                i += 1
+                for turno in [1, 2, 3]:
+                    disponibilidade = form.cleaned_data[dia + str(turno)]
+                    registo = Disponibilidade.objects.filter(voluntario_id=voluntario_id, turno=turno, dia=i)
+                    if registo and not disponibilidade: # se exisita mas deixou de existir
+                        registo.delete()
+                    elif not registo and disponibilidade: # se não exisita mas passou a existir
+                        novo = Disponibilidade(voluntario_id=voluntario_id, turno=turno, dia=i)
+                        novo.save()
+
+            return HttpResponseRedirect("/contactos/"+str(voluntario_id))
+        else:
+            return HttpResponseRedirect("/contactos/")
+    # GET
+    else:
+        #form = DisponibilidadeForm()
+        resp = {}
+        i = -1
+        for dia in ['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']:
+            i += 1
+            for turno in [1, 2, 3]:
+                if Disponibilidade.objects.filter(voluntario_id=voluntario_id, turno=turno, dia=i):
+                    resp[dia + str(turno)] = True
+        form = DisponibilidadeForm(initial=resp)
+    return render_to_response("editar_disponibilidade.html", {"form": form}, context_instance=RequestContext(request))
 
 
 @login_required
