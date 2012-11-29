@@ -14,10 +14,10 @@
 	<div class="navbar navbar-static-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<div class="brand"><img src="static/images/cruz.png" width="20px" style="margin-top: -5px"/>&nbsp;Cruz Vermelha</div>
+				<div class="brand"><img src="/static/images/cruz.png" width="20px" style="margin-top: -5px"/>&nbsp;Cruz Vermelha</div>
 				<ul class="nav pull-right">
-					<li><a href="#"><i class="icon-user"></i>Nome da Pessoa</a></li>
-					<li><a href="/logout">Logout</a></li>
+					<li><a href="#"><i class="icon-user"></i>{{ request.user.username }}</a></li>
+					<li><a href="/logout"><i class="icon-eject"></i>Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -26,9 +26,37 @@
 
 	{% endblock %}
 	<div class="container">
-
 		<div class="row">
-				{% block content %}{% endblock %}
+			{% block side_nav %}
+			<div class="span3">
+				<div class="well" style="padding: 8px 0">
+					<ul class="nav nav-list">
+
+						<li class="nav-header">Geral</li>
+						<li><a href="/avisos">Aviso</a></li>
+						<li><a href="/contactos">Contactos</a></li>
+
+						<li class="nav-header">Calendário</li>
+						<li><a href="#">Turnos</a></li>
+						<li><a href="#">Buracos</a></li>
+						<li><a href="#">Trocas</a></li>
+						<li><a href="#">Escalas</a></li>
+
+						<li class="nav-header">Administração</li>
+						<li><a href="/admin">Autorização de Trocas</a></li>
+						<li><a href="/admin">Gerir Avisos</a></li>
+						<li><a href="/admin">Gerir Escalas de Apoio</a></li>
+						<li><a href="/admin">Gerir Escalas de INEM</a></li>
+						<li><a href="/admin">Gerir Utilizadores</a></li>
+					</ul>
+				</div>
+			</div>
+			{% endblock %}
+			{% block content_container %}
+			<div class="offset1 span8">
+			{% block content %}{% endblock %}
+			</div>
+			{% endblock %}
 		</div>
 		<div class="row">
 			<div class="span12">

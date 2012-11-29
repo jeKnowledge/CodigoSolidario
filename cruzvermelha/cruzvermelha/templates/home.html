@@ -2,28 +2,56 @@
 
 {% block content %}
 
-<div class="span3">
-	<div class="well" style="padding: 8px 0">
-		<ul class="nav nav-list">
+<div class="row">
 
-			<li class="nav-header">Geral</li>
-			<li><a href="../util/menu.do?menu=5">Aviso</a></li>
-			<li><a href="../util/menu.do?menu=5">Contactos</a></li>
-
-			<li class="nav-header">Calendário</li>
-			<li><a href="../util/menu.do?menu=5">Turnos</a></li>
-			<li><a href="../util/menu.do?menu=5">Buracos</a></li>
-			<li><a href="../util/menu.do?menu=5">Trocas</a></li>
-			<li><a href="../util/menu.do?menu=5">Escalas</a></li>
-
-			<li class="nav-header">Administração</li>
-			<li><a href="/admin">Autorização de Trocas</a></li>
-			<li><a href="/admin">Gerir Avisos</a></li>
-			<li><a href="/admin">Gerir Escalas de Apoio</a></li>
-			<li><a href="/admin">Gerir Escalas de INEM</a></li>
-			<li><a href="/admin">Gerir Utilizadores</a></li>
-		</ul>
+<div class="span4">
+	<div class="well">
+		<h3>Avisos</h3>
+		{% if avisos %}
+			<ul>
+			{% for aviso in avisos %}
+				<li><a href="#">{{ aviso.titulo }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			Ainda não há avisos
+		{% endif %}
 	</div>
 </div>
+
+
+<div class="span4">
+	<div class="well">
+		<h3>Turnos</h3>
+		{% if turnos %}
+			<ul>
+			{% for turno in turnos %}
+				<li><a href="#">{{ turno }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			Ainda não há turnos
+		{% endif %}
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="span8">
+	<div class="well">
+		<h3>Buracos</h3>
+		{% if buracos %}
+			<ul>
+			{% for buraco in buracos %}
+				<li><a href="#">{{ buraco }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			Ainda não há buracos
+		{% endif %}
+	</div>
+
+</div>
+</div>
+
 
 {% endblock %}
