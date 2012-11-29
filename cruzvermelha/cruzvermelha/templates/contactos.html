@@ -2,10 +2,32 @@
 
 {% block content %}
 
-<H2>Pretos</H2>
+{% if contactos %}
 <table class="table table-hover">
 	<tr>
-	<th>Nome</th>
+		<th>Nome</th>
+		<th>Telefone 1</th>
+		<th>Telefone 2</th>
+		<th>Mail</th>
+	</tr>
+	{% for contacto in contactos %}
+	<tr>
+		<td><a href="/contactos/{{ contacto.id }}/">{{ contacto.nome }}</a><td>
+			<td>{{ contacto.telefone }}</td>
+			<td>{{ contacto.telefone2 }}</td>
+			<td>{{ contacto.email }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+	<p>Ainda não há voluntários.</p>
+	{% endif %}
+
+
+<!--<H2>Pretos</H2>
+<table class="table table-hover">
+	<tr>
+	<th></th>
 	<th>Telefone 1</th>
 	<th>Telefone 2</th>
 	<th>Mail</th>
@@ -56,6 +78,6 @@
 	<td>931212122</td>
 	<td>mail@mail.com</td>
 </tr>
-</table>
+</table>-->
 
 {% endblock %}

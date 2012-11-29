@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from django.forms import ModelForm, CharField
+from django.forms import ModelForm, CharField, Form, BooleanField
 
 from django.contrib.auth.models import User
 
@@ -28,6 +28,29 @@ class Disponibilidade(models.Model):
 	voluntario = models.ForeignKey(Voluntario)
 	dia = models.IntegerField()
 	turno = models.IntegerField()
+
+class DisponibilidadeForm(Form):
+	seg1 = BooleanField(required=False)
+	seg2 = BooleanField(required=False)
+	seg3 = BooleanField(required=False)
+	ter1 = BooleanField(required=False)
+	ter2 = BooleanField(required=False)
+	ter3 = BooleanField(required=False)
+	qua1 = BooleanField(required=False)
+	qua2 = BooleanField(required=False)
+	qua3 = BooleanField(required=False)
+	qui1 = BooleanField(required=False)
+	qui2 = BooleanField(required=False)
+	qui3 = BooleanField(required=False)
+	sex1 = BooleanField(required=False)
+	sex2 = BooleanField(required=False)
+	sex3 = BooleanField(required=False)
+	sab1 = BooleanField(required=False)
+	sab2 = BooleanField(required=False)
+	sab3 = BooleanField(required=False)
+	dom1 = BooleanField(required=False)
+	dom2 = BooleanField(required=False)
+	dom3 = BooleanField(required=False)
 
 class Escala(models.Model):
 	data = models.DateField()

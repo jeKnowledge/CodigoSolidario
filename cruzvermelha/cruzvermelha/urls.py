@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 	url(r'^contactos/$', contacto),
 	url(r'^contactos/(?P<voluntario_id>\d+)/$', contacto),
 	url(r'^editar_contacto/(?P<voluntario_id>\d+)/$', editar_contacto),
+	url(r'^editar_disponibilidade/(?P<voluntario_id>\d+)/$', editar_disponibilidade),
     # Examples:
     url(r'^$', home, name='home'),
     url(r'^login$', ulogin, name='login'),

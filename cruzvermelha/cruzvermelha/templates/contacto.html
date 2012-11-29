@@ -7,4 +7,5 @@
 
 {% if user.is_authenticated and user.id == contacto.id %}
     <p><a href="/editar_contacto/{{ contacto.id }}/">Editar dados</a></p>
+    <p><a href="/editar_disponibilidade/{{ contacto.id }}">Editar disponibilidade</a></p>
 {% endif %}

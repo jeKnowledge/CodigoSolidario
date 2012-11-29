@@ -1,0 +1,54 @@
+<form action="" method="post">{% csrf_token %}
+<table class="disponibilidade">
+	<tr>
+		<th>Turno</th>
+		<th>Segunda</th>
+		<th>Terça</th>
+		<th>Quarta</th>
+		<th>Quinta</th>
+		<th>Sexta</th>
+		<th>Sábado</th>
+		<th>Domingo</th>
+	</tr>
+	<tr>
+		<td>0h - 8h</td>
+		<td>{{ form.seg1 }}</td>
+		<td>{{ form.ter1 }}</td>
+		<td>{{ form.qua1 }}</td>
+		<td>{{ form.qui1 }}</td>
+		<td>{{ form.sex1 }}</td>
+		<td>{{ form.sab1 }}</td>
+		<td>{{ form.dom1 }}</td>
+	</tr>
+	<tr>
+		<td>8h - 16h</td>
+		<td>{{ form.seg2 }}</td>
+		<td>{{ form.ter2 }}</td>
+		<td>{{ form.qua2 }}</td>
+		<td>{{ form.qui2 }}</td>
+		<td>{{ form.sex2 }}</td>
+		<td>{{ form.sab2 }}</td>
+		<td>{{ form.dom2 }}</td>
+	</tr>
+	<tr>
+		<td>16h - 24h</td>
+		<td>{{ form.seg3 }}</td>
+		<td>{{ form.ter3 }}</td>
+		<td>{{ form.qua3 }}</td>
+		<td>{{ form.qui3 }}</td>
+		<td>{{ form.sex3 }}</td>
+		<td>{{ form.sab3 }}</td>
+		<td>{{ form.dom3 }}</td>
+	</tr>
+</table>
+<input type="submit" value="Gravar" />
+</form>
+<style>
+	table.disponibilidade td, table.disponibilidade th {
+		width: 12.5%;
+		border: 1px solid black;
+		padding: 10px;
+		margin: 0;
+		text-align: center;
+	}
+</style>
