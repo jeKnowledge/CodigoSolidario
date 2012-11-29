@@ -10,16 +10,25 @@
 
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				{% block header %}{% endblock %}
+	{% block header %}
+	<div class="navbar navbar-static-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<div class="brand"><img src="static/images/cruz.png" width="20px" style="margin-top: -5px"/>&nbsp;Cruz Vermelha</div>
+				<ul class="nav pull-right">
+					<li><a href="#"><i class="icon-user"></i>Nome da Pessoa</a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
 			</div>
 		</div>
+	</div>
+
+
+	{% endblock %}
+	<div class="container">
+
 		<div class="row">
-			<div class="span12">
 				{% block content %}{% endblock %}
-			</div>
 		</div>
 		<div class="row">
 			<div class="span12">
