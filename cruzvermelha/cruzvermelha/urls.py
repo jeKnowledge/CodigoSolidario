@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^dashboard$', dashboard, name='dashboard'),
     url(r'^logout$', quit, name='quit'),
     # url(r'^cruzvermelha/', include('cruzvermelha.foo.urls')),
-
+    url(r'^avisos/(?P<desde>\d+)?/?$', listaAvisos),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

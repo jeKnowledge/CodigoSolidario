@@ -11,11 +11,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 
+def custom_render(request, template, context={}):
+    context['request'] = request
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
 def home(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect("dashboard")
     else:
-        return render_to_response("index.html", {}, context_instance=RequestContext(request))
+        return custom_render(request, "index.html")
 
 def ulogin(request):
     if request.method == "POST":
@@ -31,7 +35,7 @@ def ulogin(request):
         else:
             message = "User ou password inválidos"
 
-        return render_to_response("index.html", {"message": message})
+        return custom_render(request, "index.html", {"message": message})
     else: 
         return HttpResponseRedirect("")
 
@@ -41,12 +45,12 @@ def contacto(request, voluntario_id=None):
     if voluntario_id:
         contacto = Voluntario.objects.get(id=voluntario_id)
         user = request.user
-        return render_to_response("contacto.html", {"contacto": contacto, "user": user})
+        return custom_render(request, "contacto.html", {"contacto": contacto, "user": user})
         
     # Ver lista de voluntários
     else:
         contactos = Voluntario.objects.order_by('-date_joined')[:5]
-        return render_to_response("contactos.html", {"contactos": contactos})
+        return custom_render(request, "contactos.html", {"contactos": contactos})
 
 @login_required
 def editar_contacto(request, voluntario_id=None):
@@ -59,7 +63,7 @@ def editar_contacto(request, voluntario_id=None):
             return HttpResponseRedirect("/contactos/"+str(voluntario_id))
     else:
         form = VoluntarioForm(instance=voluntario)
-    return render_to_response("editar_contacto.html", {"form": form}, context_instance=RequestContext(request))
+    return custom_render(request, "editar_contacto.html", {"form": form})
 
 @login_required
 def dashboard(request):
@@ -68,7 +72,7 @@ def dashboard(request):
     turnos = turnos.filter(data__gte=datetime.date.today()).order_by("data")[:5]
     buracos = Escala.objects.filter(Q(condutor=None) | Q(preto=None) | Q(outro=None))
     buracos = buracos.order_by("data")[:5]
-    return render_to_response("home.html", {'avisos':avisos, 'turnos':turnos, 'buracos':buracos}, context_instance=RequestContext(request))
+    return custom_render(request, "home.html", {'avisos':avisos, 'turnos':turnos, 'buracos':buracos})
 
 @login_required
 def quit(request):
@@ -78,17 +82,23 @@ def quit(request):
 @login_required
 def AdicionarAviso(request):
     if request.method == "POST":
-
         titulo = request.POST['titulo']
         mensagem = request.POST['mensagem']
-
         AdicionarNovoAviso(titulo, mensagem)
  
-        render_to_response("algures na web", {'titulo':titulo, 'mensagem':mensagem})
+        return custom_render(request, "algures na web", {'titulo':titulo, 'mensagem':mensagem})
 
     else:
         return HttpResponseRedirect("")
 
+@login_required
+def listaAvisos(request, desde):
+    if desde == None:
+        inicio=0
+    else:
+        inicio = int(desde);
+    avisos = Aviso.objects.all().order_by("date")[inicio:inicio+20]
+    return custom_render(request, "avisos.html" ,{"avisos": avisos})
 
 
 #Funções Auxiliares

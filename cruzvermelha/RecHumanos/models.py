@@ -6,10 +6,10 @@ from django.forms import ModelForm, CharField
 from django.contrib.auth.models import User
 
 class Voluntario(User):
-	telefone = models.IntegerField()
+	telefone = models.IntegerField(null=True)
 	telefone2 = models.IntegerField(null=True)
 	formacao = models.CharField(max_length=100)
-	categoria = models.IntegerField() # 0 = condutor , 1 =  preto , 2 = verde
+	categoria = models.IntegerField(null=True) # 0 = condutor , 1 =  preto , 2 = verde
 
 	def nome(self):
 		return self.first_name + " " + self.last_name
